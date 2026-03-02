@@ -177,7 +177,7 @@
       <p class="work-title"><strong>Título:</strong> Neuroderechos y dignidad humana: desafíos jurídicos frente al
         impacto de las neurotecnologías sobre la privacidad e intimidad mental y cerebral.</p>
       <p class="work-author"><strong>Autor:</strong> Yissel Hernández Guerra</p>
-      <p class="work-director"><strong>Director:</strong> PhD. Ana María Carrascal Vergel</p>
+      <p class="work-director"><strong>Director:</strong> Nombre del director</p>
     </div>
     <hr class="divider" />
     <div class="search-wrap">
@@ -241,6 +241,9 @@
         }
 
         referencesData = await response.json();
+        referencesData.sort((a, b) =>
+          (a.title || "").localeCompare((b.title || ""), "es", { sensitivity: "base" })
+        );
         renderReferences(referencesData);
       } catch (error) {
         status.hidden = false;
